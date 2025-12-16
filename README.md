@@ -13,3 +13,13 @@ A static HTML/CSS/JS site with a simple PHP script (`checkPasskey.php`) for pass
 
 ## License
 This project is licensed under the MIT License – see the [LICENSE](LICENSE) file for details.
+
+## Website
+
+https://ivory-goat-374370.org
+
+## Website-Details:
+Provider: Hostsinger
+Certificate: SSL
+Business email: N/A
+
