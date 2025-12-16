@@ -1,0 +1,41 @@
+          body {
+              font-family: Arial, sans-serif;
+              margin: 0;
+              padding: 0;
+              background-color: #f4f4f4;
+        }
+        header {
+                 background-color: #e6e47b;
+                 color: white;
+                 padding: 4px 0;
+                 text-align: center;
+        }
+        footer {
+                background-color: #333;
+                color: white;
+                text-align: center;
+                padding: 3.5px 0;
+                position: fixed;
+                width: 100%;
+                bottom: 0;
+        }
+        main {
+              padding: 5px;
+        }
+        hr {
+            border-color: bisque;
+        }
+        h1, h2 {
+                color: #333;
+        }
+        .a {
+              font-family: 'Times New Roman', Times, serif;
+              font-size: 16px;
+              color: #333;
+        }
+        a {
+             color: #333;
+             text-decoration: none;
+             font-style: normal;
+
+        }

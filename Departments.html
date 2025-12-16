@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Departments</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Internal CSS -->
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2em;
+        }
+
+        hr {
+            border: none;
+            border-top: 2px solid #ccc;
+            margin: 0;
+        }
+
+        img {
+            border-radius: 50%;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+            margin-top: 15px;
+        }
+
+        main {
+            flex: 1;
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        section {
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: #4CAF50;
+            border-bottom: 2px solid #4CAF50;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+        }
+
+        .table-container {
+            margin-top: 15px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            background: #fff;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+            width: 30%;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #e8f5e9;
+        }
+
+        footer {
+            background-color: #222;
+            color: #ccc;
+            text-align: center;
+            padding: 15px;
+            font-size: 0.9em;
+            box-shadow: 0 -2px 6px rgba(0,0,0,0.2);
+        }
+
+        footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Departments of St. Teresa's School</h1> 
+    </header>
+    <hr>
+    <p style="text-align: center;">
+        <img src="STS.jpg" alt="St. Teresa's School Berhampore" width="125" height="125">
+    </p>
+    <main>
+        <section>
+            <h2>Our Departments</h2>
+            <div class="table-container">
+                <table>
+                    <tr>
+                        <th>Physics</th>
+                        <td>Mr. Bishal Saha</td>
+                    </tr>
+                    <tr>
+                        <th>Chemistry</th>
+                        <td>Mr. Soumajeet Sarkar</td>
+                    </tr>
+                    <tr>
+                        <th>Biology</th>
+                        <td>Mr. Pijush Mazumdar</td>
+                    </tr>
+                    <tr>
+                        <th>Mathematics</th>
+                        <td>Mr. Bishal Saha</td>
+                    </tr>
+                    <tr>
+                        <th>English Lit. & Lang.</th>
+                        <td>Mrs. Soumi Nath</td>
+                    </tr>
+                    <tr>
+                        <th>Geography</th>
+                        <td>Mrs. Emily Ghosh</td>
+                    </tr>
+                    <tr>
+                        <th>History & Civics</th>
+                        <td>Mrs. Vibha Das</td>
+                    </tr>
+                    <tr>
+                        <th>P.E./Games</th>
+                        <td>Mr. Prakash</td>
+                    </tr>
+                    <tr>
+                        <th>SUPW</th>
+                        <td>Mr. Sonimesh Baskey</td>
+                    </tr>
+                    <tr>
+                        <th>Computer Science</th>
+                        <td>Mr. Soumajeet Sarkar</td>
+                    </tr>
+                    <tr>
+                        <th>Languages</th>
+                        <td>Mrs. Shreya Chandra<br>Mrs. Ferdous Ara Begam</td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2015 St. Teresa's School. All rights reserved.</p>
+    </footer>        
+</body>
+</html>
