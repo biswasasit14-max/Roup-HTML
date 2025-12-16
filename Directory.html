@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Directory</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      height: 100vh;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 20%;
+      background: #f4f4f4;
+      border-right: 1px solid #ccc;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .sidebar a {
+      display: block;
+      padding: 10px;
+      margin: 5px 0;
+      text-decoration: none;
+      color: black;
+      background-color: grey;
+      transition: all 0.2s ease;
+    }
+
+    .sidebar a:hover {
+      background-color: lightgrey;
+      transform: translateX(2px);
+    }
+
+    .sidebar a.active {
+      background-color: green;
+      color: white;
+      transform: translateX(5px);
+    }
+
+    /* Content frame */
+    .content {
+      width: 80%;
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* Reset button */
+    .reset-btn {
+      display: block;
+      margin-top: 20px;
+      padding: 10px;
+      background: #d9534f;
+      color: white;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      text-align: center;
+    }
+
+    .reset-btn:hover {
+      background: #c9302c;
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <a href="Home.html" target="contentFrame">Home</a>
+    <a href="About Us.html" target="contentFrame">About Us</a>
+    <a href="Departments.html" target="contentFrame">Departments</a>
+    <button class="reset-btn" onclick="resetFrame()">Reset</button>
+  </div>
+
+  <div class="content">
+    <iframe name="contentFrame" id="contentFrame"></iframe>
+  </div>
+
+  <script>
+    const links = document.querySelectorAll('.sidebar a');
+    const iframe = document.getElementById('contentFrame');
+
+    // Add click event to links
+    links.forEach(link => {
+      link.addEventListener('click', function() {
+        // Remove active class from all links
+        links.forEach(l => l.classList.remove('active'));
+        // Add active class to clicked link
+        this.classList.add('active');
+      });
+    });
+
+    // Reset iframe
+    function resetFrame() {
+      iframe.srcdoc = "<h2 style='text-align:center; margin-top:20%;'>Click a link from the directory to view content here.</h2>";
+      links.forEach(l => l.classList.remove('active'));
+    }
+
+    // Initialize with reset text
+    resetFrame();
+  </script>
+</body>
+</html>
