@@ -7,7 +7,7 @@ $_SESSION = array();
 // Destroy the session
 if (session_destroy()) {
     // Redirect to login page
-    header('Location: login.html?logout=1');
+    header('Location: index.html?logout=1');
 } else {
     echo "Error: Could not log out properly.";
     echo '<br><a href="login.html">Return to login</a>';
