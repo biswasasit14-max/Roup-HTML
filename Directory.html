@@ -9,13 +9,14 @@
       font-family: Arial, sans-serif;
       display: flex;
       height: 100vh;
+      background: linear-gradient(135deg, #f0fff0, #e8f5e8, #e0f0e0);
     }
 
     /* Sidebar */
     .sidebar {
       width: 20%;
-      background: #f4f4f4;
-      border-right: 1px solid #ccc;
+      background: linear-gradient(180deg, #f8fff8, #f0f8f0);
+      border-right: 1px solid #d4e7d4;
       padding: 20px;
       box-sizing: border-box;
       display: flex;
@@ -23,82 +24,70 @@
       align-items: center;
     }
 
-    /* Animated conic gradient header */
+    /* Animated linear gradient header with light greens */
     .sidebar-header {
       font-size: 1.5em;
       font-weight: bold;
       margin-bottom: 20px;
-      padding: 10px 20px;
-      border: 6px solid transparent;
+      padding: 15px 25px;
       border-radius: 12px;
-      background: conic-gradient(
-        from 0deg,
-        red,
-        orange,
-        yellow,
-        green,
-        blue,
-        indigo,
-        violet,
-        red
+      background: linear-gradient(
+        90deg,
+        #e8f5e9,
+        #d4edda,
+        #c8e6c9,
+        #dcedc8,
+        #f0f4c3,
+        #e8f5e9
       );
-      background-size: 200% 200%;
-      animation: rotateGradient 5s linear infinite;
-      color: black;
+      background-size: 400% 100%;
+      animation: gradientFlow 8s linear infinite;
+      color: #2e7d32;
       text-align: center;
+      box-shadow: 0 4px 6px rgba(76, 175, 80, 0.1);
+      border: 2px solid rgba(200, 230, 201, 0.8);
     }
 
-    @keyframes rotateGradient {
+    @keyframes gradientFlow {
       0% {
-        background: conic-gradient(
-          from 0deg,
-          red,
-          orange,
-          yellow,
-          green,
-          blue,
-          indigo,
-          violet,
-          red
-        );
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
       }
       100% {
-        background: conic-gradient(
-          from 360deg,
-          red,
-          orange,
-          yellow,
-          green,
-          blue,
-          indigo,
-          violet,
-          red
-        );
+        background-position: 0% 50%;
       }
     }
 
     .sidebar a {
       display: block;
-      padding: 10px;
-      margin: 5px 0;
+      padding: 12px;
+      margin: 8px 0;
       text-decoration: none;
-      color: black;
-      background-color: grey;
-      transition: all 0.2s ease;
+      color: #2e7d32;
+      background: linear-gradient(90deg, #e8f5e9, #f1f8e9);
+      transition: all 0.3s ease;
       width: 100%;
       text-align: center;
-      border-radius: 6px;
+      border-radius: 8px;
+      border: 1px solid #c8e6c9;
+      font-weight: 500;
+      box-shadow: 0 2px 4px rgba(76, 175, 80, 0.1);
     }
 
     .sidebar a:hover {
-      background-color: lightgrey;
-      transform: translateX(2px);
+      background: linear-gradient(90deg, #c8e6c9, #dcedc8);
+      transform: translateX(3px);
+      box-shadow: 0 4px 8px rgba(76, 175, 80, 0.2);
     }
 
     .sidebar a.active {
-      background-color: green;
+      background: linear-gradient(90deg, #4caf50, #66bb6a);
       color: white;
       transform: translateX(5px);
+      box-shadow: 0 4px 8px rgba(76, 175, 80, 0.3);
+      border-color: #388e3c;
     }
 
     /* Content frame */
@@ -107,12 +96,14 @@
       padding: 0;
       margin: 0;
       box-sizing: border-box;
+      background: linear-gradient(135deg, #f8fff8, #f0f8f0);
     }
 
     iframe {
       width: 100%;
       height: 100%;
       border: none;
+      background: linear-gradient(135deg, #f8fff8, #f0f8f0);
     }
 
     /* Circular reset button */
@@ -121,16 +112,19 @@
       width: 60px;
       height: 60px;
       border-radius: 50%;
-      background: #d9534f;
+      background: linear-gradient(135deg, #81c784, #66bb6a);
       color: white;
       border: none;
       cursor: pointer;
       font-weight: bold;
-      transition: background 0.3s ease;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 6px rgba(76, 175, 80, 0.3);
     }
 
     .reset-btn:hover {
-      background: #c9302c;
+      background: linear-gradient(135deg, #66bb6a, #4caf50);
+      transform: scale(1.05);
+      box-shadow: 0 6px 8px rgba(76, 175, 80, 0.4);
     }
   </style>
 </head>
@@ -161,7 +155,28 @@
 
     // Reset iframe
     function resetFrame() {
-      iframe.srcdoc = "<h2 style='text-align:center; margin-top:20%;'>Click a link from the directory to view content here.</h2>";
+      iframe.srcdoc = `
+        <div style="
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background: linear-gradient(135deg, #f8fff8, #f0f8f0);
+          font-family: Arial, sans-serif;
+        ">
+          <h2 style="
+            color: #2e7d32;
+            text-align: center;
+            padding: 30px;
+            background: linear-gradient(135deg, #e8f5e9, #dcedc8);
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(76, 175, 80, 0.1);
+            border: 2px solid #c8e6c9;
+          ">
+            Click a link from the directory to view content here.
+          </h2>
+        </div>
+      `;
       links.forEach(l => l.classList.remove('active'));
     }
 
