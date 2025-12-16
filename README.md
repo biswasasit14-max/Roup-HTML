@@ -16,9 +16,11 @@ This project is licensed under the MIT License – see the [LICENSE](LICENSE) fi
 
 ## Website
 
+Location:
+
 https://ivory-goat-374370.org
 
-## Website-Details:
+Details:
 Provider: Hostsinger
 Certificate: SSL
 Business email: N/A
