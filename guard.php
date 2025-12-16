@@ -4,7 +4,7 @@ session_start();
 // Redirect to login if not authenticated
 function require_login() {
     if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
-        header('Location: index.html');
+        header('Location: login.html');
         exit();
     }
 }
@@ -14,8 +14,8 @@ function is_logged_in() {
     return isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
 }
 
-// Get current user info
-function get_current_user() {
+// CHANGED: Renamed from get_current_user() to get_session_user()
+function get_session_user() {
     if (is_logged_in()) {
         return array(
             'id' => $_SESSION['user_id'],
@@ -46,9 +46,9 @@ function check_session_timeout() {
     }
 }
 
-/* Call this function on every protected page
+// Call this function on every protected page
 function protect_page() {
     require_login();
     check_session_timeout();
-} */
+}
 ?>
