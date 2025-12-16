@@ -1,3 +1,7 @@
+<?php
+require_once 'guard.php';
+protect_page();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -119,9 +123,9 @@
         
         <nav>
             <p>Explore More About Our School</p>
-            <a href="Departments.html">Departments</a>
-            <a href="About Us.html">About Us</a>
-            <a href="https://github.com/biswasasit14-max/Roup-HTML">Contact</a>
+            <a href="Departments.php">Departments</a>
+            <a href="About Us.php">About Us</a>
+            <a href="#">Contact</a>
         </nav>
     </main>
     <footer class="gradient-footer">
@@ -129,5 +133,6 @@
     </footer>
 </body>
 </html>
+
 
 
