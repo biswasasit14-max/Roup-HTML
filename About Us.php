@@ -1,3 +1,7 @@
+<?php
+require_once 'guard.php';
+protect_page();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -71,4 +75,5 @@
     </footer>
 </body>
 </html>
+
 
