@@ -1,0 +1,31 @@
+{
+  "name": "biswasasit14-max/roup-html",
+  "description": "Static HTML/CSS/JS site with a PHP script for passkey checking",
+  "type": "project",
+  "license": "none",
+  "authors": [
+    {
+      "name": "Asit Biswas",
+      "email": "your@email.com"
+    }
+  ],
+  "require": {
+    "php": "^8.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\": "src/"
+    }
+  },
+  "scripts": {
+    "post-install-cmd": [
+      "@php -r \"echo 'Project installed successfully.';\""
+    ]
+  },
+  "config": {
+    "optimize-autoloader": true,
+    "sort-packages": true
+  },
+  "minimum-stability": "stable",
+  "prefer-stable": true
+}
