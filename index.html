@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Authentication Portal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      20% { transform: translateX(-6px); }
+      40% { transform: translateX(6px); }
+      60% { transform: translateX(-6px); }
+      80% { transform: translateX(6px); }
+    }
+    .shake {
+      animation: shake 0.4s;
+    }
+
+    /* Glow animations with fade out */
+    @keyframes glowSuccess {
+      0%   { box-shadow: 0 0 12px 4px rgba(76,175,80,0.8); border-color: #4CAF50; }
+      70%  { box-shadow: 0 0 12px 4px rgba(76,175,80,0.4); }
+      100% { box-shadow: none; border-color: #aaa; }
+    }
+    @keyframes glowError {
+      0%   { box-shadow: 0 0 12px 4px rgba(244,67,54,0.8); border-color: #f44336; }
+      70%  { box-shadow: 0 0 12px 4px rgba(244,67,54,0.4); }
+      100% { box-shadow: none; border-color: #aaa; }
+    }
+
+    .glow-success {
+      animation: glowSuccess 2s ease-out forwards;
+    }
+    .glow-error {
+      animation: glowError 2s ease-out forwards;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+      color: #333;
+      text-align: center;
+    }
+
+    h1 {
+      font-family: monospace;
+      background-color: #4CAF50;
+      color: white;
+      padding: 20px;
+      margin: 0;
+      font-size: 2em;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+      border-bottom: 3px solid #45a049;
+    }
+
+    .captchaBox {
+      margin: 40px auto;
+      padding: 20px;
+      width: 360px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+      border: 1px solid #aaa;
+      transition: box-shadow 0.4s ease;
+    }
+
+    input[type="password"] {
+      padding: 10px;
+      width: 100%;
+      border-radius: 6px;
+      border: 1px solid #aaa;
+      margin-top: 10px;
+    }
+
+    .btn {
+      margin-top: 12px;
+      padding: 10px 18px;
+      background: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      font-weight: 500;
+    }
+    .btn:hover { background: #45a049; transform: scale(1.05); }
+    .btn:active { background: #3e8e41; transform: scale(0.98); }
+    .btn:disabled { background: #aaa; cursor: not-allowed; }
+
+    footer {
+      background-color: #222;
+      color: #ccc;
+      padding: 15px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      font-size: 0.9em;
+      box-shadow: 0 -2px 4px rgba(0,0,0,0.2);
+    }
+    footer p { margin: 0; }
+</style>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Authentication Portal</h1>
+
+  <div class="captchaBox" id="captchaBox">
+    <input type="password" id="passkeyInput" placeholder="Enter Passkey">
+    <button class="btn" id="passkeyBtn">Use Passkey</button>
+
+    <!-- Open Link button starts disabled -->
+    <button class="btn" id="myButton" type="button" disabled>
+      Open Link
+    </button>
+  </div>
+
+  <footer>
+    <p>© 2025 Made by The Rope Garage Co. All rights reserved.</p>
+  </footer>
+
+  <!-- Only one JS file now -->
+  <script src="script.js"></script>
+</body>
+</html>
