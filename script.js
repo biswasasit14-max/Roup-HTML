@@ -62,7 +62,7 @@ document.getElementById('loginForm').addEventListener('submit', async function(e
             
             // Redirect to Directory.html after successful login
             setTimeout(() => {
-                window.location.href = 'Directory.html';
+                window.location.href = 'Home.html';
             }, 1500);
         } else {
             // Error animation and message
@@ -76,7 +76,7 @@ document.getElementById('loginForm').addEventListener('submit', async function(e
             
             // Focus back on username field
             setTimeout(() => {
-                usernameInput.focus();
+               usernameInput.focus();
             }, 100);
         }
     } catch (error) {
