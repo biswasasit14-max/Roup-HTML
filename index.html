@@ -4,124 +4,489 @@
   <meta charset="UTF-8">
   <title>Authentication Portal</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
+    /* Enhanced Shake Animation */
     @keyframes shake {
-      0%, 100% { transform: translateX(0); }
-      20% { transform: translateX(-6px); }
-      40% { transform: translateX(6px); }
-      60% { transform: translateX(-6px); }
-      80% { transform: translateX(6px); }
+      0%, 100% { transform: translateX(0) rotate(0deg); }
+      15% { transform: translateX(-8px) rotate(-1deg); }
+      30% { transform: translateX(8px) rotate(1deg); }
+      45% { transform: translateX(-6px) rotate(-0.5deg); }
+      60% { transform: translateX(6px) rotate(0.5deg); }
+      75% { transform: translateX(-3px) rotate(-0.25deg); }
     }
     .shake {
-      animation: shake 0.4s;
+      animation: shake 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
     }
 
-    /* Glow animations with fade out */
+    /* Enhanced Glow Animations */
     @keyframes glowSuccess {
-      0%   { box-shadow: 0 0 12px 4px rgba(76,175,80,0.8); border-color: #4CAF50; }
-      70%  { box-shadow: 0 0 12px 4px rgba(76,175,80,0.4); }
-      100% { box-shadow: none; border-color: #aaa; }
+      0%   { 
+        box-shadow: 
+          0 0 15px 6px rgba(76,175,80,0.9),
+          0 0 25px 12px rgba(76,175,80,0.4);
+        border-color: #4CAF50;
+      }
+      50%  { 
+        box-shadow: 
+          0 0 20px 8px rgba(76,175,80,0.7),
+          0 0 30px 15px rgba(76,175,80,0.3);
+      }
+      100% { 
+        box-shadow: 
+          0 0 10px 3px rgba(76,175,80,0.2),
+          0 0 20px 5px rgba(76,175,80,0.1);
+        border-color: #4CAF50;
+      }
     }
+    
     @keyframes glowError {
-      0%   { box-shadow: 0 0 12px 4px rgba(244,67,54,0.8); border-color: #f44336; }
-      70%  { box-shadow: 0 0 12px 4px rgba(244,67,54,0.4); }
-      100% { box-shadow: none; border-color: #aaa; }
+      0%   { 
+        box-shadow: 
+          0 0 15px 6px rgba(244,67,54,0.9),
+          0 0 25px 12px rgba(244,67,54,0.4);
+        border-color: #f44336;
+      }
+      50%  { 
+        box-shadow: 
+          0 0 20px 8px rgba(244,67,54,0.7),
+          0 0 30px 15px rgba(244,67,54,0.3);
+      }
+      100% { 
+        box-shadow: 
+          0 0 10px 3px rgba(244,67,54,0.2),
+          0 0 20px 5px rgba(244,67,54,0.1);
+        border-color: #f44336;
+      }
     }
 
     .glow-success {
-      animation: glowSuccess 2s ease-out forwards;
+      animation: glowSuccess 3s ease-out forwards;
     }
     .glow-error {
-      animation: glowError 2s ease-out forwards;
+      animation: glowError 3s ease-out forwards;
     }
 
+    /* Main Body with Gradient */
     body {
-      font-family: Arial, Helvetica, sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #f9f9f9;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
       color: #333;
-      text-align: center;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
 
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Header with Glass Morphism */
     h1 {
-      font-family: monospace;
-      background-color: #4CAF50;
+      font-family: 'Courier New', monospace;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
       color: white;
-      padding: 20px;
+      padding: 25px;
       margin: 0;
-      font-size: 2em;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-      border-bottom: 3px solid #45a049;
+      font-size: 2.2em;
+      box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+      position: relative;
+      overflow: hidden;
     }
 
+    h1::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      animation: shimmer 3s infinite;
+    }
+
+    @keyframes shimmer {
+      100% { left: 100%; }
+    }
+
+    /* Main Container */
+    .container {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 30px;
+    }
+
+    /* Captcha Box with Glass Morphism */
     .captchaBox {
-      margin: 40px auto;
-      padding: 20px;
-      width: 360px;
-      background: #fff;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-      border: 1px solid #aaa;
-      transition: box-shadow 0.4s ease;
+      margin: 0 auto;
+      padding: 40px;
+      width: 420px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 20px;
+      box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.15),
+        0 8px 32px rgba(31, 38, 135, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .captchaBox:hover {
+      transform: translateY(-5px);
+      box-shadow: 
+        0 25px 50px rgba(0, 0, 0, 0.2),
+        0 12px 40px rgba(31, 38, 135, 0.25);
+    }
+
+    .captchaBox::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+      transform: rotate(45deg);
+      animation: shine 6s infinite linear;
+    }
+
+    @keyframes shine {
+      0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+      100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+    }
+
+    /* Input with Icon */
+    .input-group {
+      position: relative;
+      margin-bottom: 25px;
+    }
+
+    .input-group i {
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #667eea;
+      font-size: 1.2em;
+      z-index: 2;
     }
 
     input[type="password"] {
-      padding: 10px;
+      padding: 15px 15px 15px 45px;
       width: 100%;
-      border-radius: 6px;
-      border: 1px solid #aaa;
+      border-radius: 10px;
+      border: 2px solid #e0e0e0;
+      background: rgba(255, 255, 255, 0.9);
+      font-size: 1em;
+      transition: all 0.3s ease;
+      box-sizing: border-box;
+    }
+
+    input[type="password"]:focus {
+      outline: none;
+      border-color: #667eea;
+      background: white;
+      box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+    }
+
+    /* Enhanced Buttons */
+    .btn {
+      margin: 15px 5px;
+      padding: 15px 25px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      font-weight: 600;
+      font-size: 1em;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.3);
+      transform: translate(-50%, -50%);
+      transition: width 0.6s, height 0.6s;
+    }
+
+    .btn:hover::before {
+      width: 300px;
+      height: 300px;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px) scale(1.05);
+    }
+
+    .btn:active {
+      transform: translateY(1px) scale(0.98);
+    }
+
+    #passkeyBtn {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      width: 100%;
+    }
+
+    #passkeyBtn:hover {
+      background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+      box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+    }
+
+    #myButton {
+      background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
+      color: white;
+      width: 100%;
       margin-top: 10px;
     }
 
-    .btn {
-      margin-top: 12px;
-      padding: 10px 18px;
-      background: #4CAF50;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background-color 0.3s ease, transform 0.2s ease;
-      font-weight: 500;
+    #myButton:not(:disabled):hover {
+      background: linear-gradient(135deg, #2E7D32 0%, #4CAF50 100%);
+      box-shadow: 0 10px 20px rgba(76, 175, 80, 0.4);
     }
-    .btn:hover { background: #45a049; transform: scale(1.05); }
-    .btn:active { background: #3e8e41; transform: scale(0.98); }
-    .btn:disabled { background: #aaa; cursor: not-allowed; }
 
-    footer {
-      background-color: #222;
-      color: #ccc;
-      padding: 15px;
-      position: fixed;
-      bottom: 0;
-      width: 100%;
+    #myButton:disabled {
+      background: linear-gradient(135deg, #9e9e9e 0%, #757575 100%);
+      cursor: not-allowed;
+      opacity: 0.7;
+    }
+
+    /* Status Messages */
+    .status-message {
+      margin-top: 20px;
+      padding: 12px;
+      border-radius: 8px;
       font-size: 0.9em;
-      box-shadow: 0 -2px 4px rgba(0,0,0,0.2);
+      display: none;
+      align-items: center;
+      gap: 10px;
+      animation: fadeIn 0.5s ease;
     }
-    footer p { margin: 0; }
-</style>
 
-  <link rel="stylesheet" href="style.css">
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .success-msg {
+      background: rgba(76, 175, 80, 0.1);
+      color: #2E7D32;
+      border-left: 4px solid #4CAF50;
+    }
+
+    .error-msg {
+      background: rgba(244, 67, 54, 0.1);
+      color: #d32f2f;
+      border-left: 4px solid #f44336;
+    }
+
+    /* Enhanced Footer */
+    footer {
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      color: #ccc;
+      padding: 20px;
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      position: relative;
+    }
+
+    footer p {
+      margin: 0;
+      font-size: 0.95em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .company-icon {
+      color: #764ba2;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+  </style>
 </head>
 <body>
-  <h1>Authentication Portal</h1>
+  <h1>
+    <i class="fas fa-shield-alt"></i> Authentication Portal
+  </h1>
 
-  <div class="captchaBox" id="captchaBox">
-    <input type="password" id="passkeyInput" placeholder="Enter Passkey">
-    <button class="btn" id="passkeyBtn">Use Passkey</button>
+  <div class="container">
+    <div class="captchaBox" id="captchaBox">
+      <div class="input-group">
+        <i class="fas fa-key"></i>
+        <input type="password" id="passkeyInput" placeholder="Enter your secure passkey">
+      </div>
+      
+      <button class="btn" id="passkeyBtn">
+        <i class="fas fa-fingerprint"></i> Authenticate with Passkey
+      </button>
 
-    <!-- Open Link button starts disabled -->
-    <button class="btn" id="myButton" type="button" disabled>
-      Open Link
-    </button>
+      <!-- Status Messages -->
+      <div id="statusMessage" class="status-message"></div>
+
+      <!-- Open Link button starts disabled -->
+      <button class="btn" id="myButton" type="button" disabled>
+        <i class="fas fa-external-link-alt"></i> Access Secure Portal
+      </button>
+    </div>
   </div>
 
   <footer>
-    <p>© 2025 Made by The Rope Garage Co. All rights reserved.</p>
+    <p>
+      <i class="fas fa-copyright company-icon"></i> 
+      2025 Made by The Rope Garage Co. All rights reserved.
+      <i class="fas fa-lock" style="margin-left: 10px;"></i>
+    </p>
   </footer>
 
-  <!-- Only one JS file now -->
-  <script src="script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const passkeyInput = document.getElementById('passkeyInput');
+      const passkeyBtn = document.getElementById('passkeyBtn');
+      const myButton = document.getElementById('myButton');
+      const captchaBox = document.getElementById('captchaBox');
+      const statusMessage = document.getElementById('statusMessage');
+
+      // Correct passkey
+      const CORRECT_PASSKEY = "secure123";
+
+      // Show status message
+      function showMessage(text, isError = false) {
+        statusMessage.textContent = text;
+        statusMessage.className = `status-message ${isError ? 'error-msg' : 'success-msg'}`;
+        statusMessage.innerHTML = `
+          <i class="fas ${isError ? 'fa-times-circle' : 'fa-check-circle'}"></i>
+          ${text}
+        `;
+        statusMessage.style.display = 'flex';
+        
+        setTimeout(() => {
+          statusMessage.style.display = 'none';
+        }, 3000);
+      }
+
+      // Add shake effect
+      function addShake(element) {
+        element.classList.remove('shake');
+        void element.offsetWidth; // Trigger reflow
+        element.classList.add('shake');
+      }
+
+      // Add glow effect
+      function addGlow(element, isSuccess) {
+        element.classList.remove('glow-success', 'glow-error');
+        void element.offsetWidth; // Trigger reflow
+        element.classList.add(isSuccess ? 'glow-success' : 'glow-error');
+      }
+
+      // Passkey authentication
+      passkeyBtn.addEventListener('click', function() {
+        const userInput = passkeyInput.value.trim();
+        
+        if (!userInput) {
+          addShake(passkeyInput);
+          showMessage("Please enter a passkey", true);
+          addGlow(captchaBox, false);
+          return;
+        }
+
+        if (userInput === CORRECT_PASSKEY) {
+          // Success
+          myButton.disabled = false;
+          passkeyInput.value = '';
+          showMessage("Authentication successful! You can now access the portal.");
+          addGlow(captchaBox, true);
+          
+          // Add success icon to button
+          myButton.innerHTML = `
+            <i class="fas fa-check-circle"></i> 
+            Access Secure Portal
+            <i class="fas fa-arrow-right" style="margin-left: auto;"></i>
+          `;
+        } else {
+          // Failure
+          addShake(captchaBox);
+          showMessage("Invalid passkey. Please try again.", true);
+          addGlow(captchaBox, false);
+          passkeyInput.value = '';
+          passkeyInput.focus();
+        }
+      });
+
+      // Open Link button functionality
+      myButton.addEventListener('click', function() {
+        if (!myButton.disabled) {
+          // Add celebration effect
+          captchaBox.style.transform = 'scale(1.05)';
+          setTimeout(() => {
+            captchaBox.style.transform = '';
+          }, 300);
+          
+          showMessage("Redirecting to secure portal...");
+          
+          // Simulate redirect after delay
+          setTimeout(() => {
+            alert("Redirecting to secure portal... (This would open the actual link)");
+            // In production: window.location.href = "your-secure-link.html";
+          }, 1000);
+        }
+      });
+
+      // Enter key support for passkey input
+      passkeyInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+          passkeyBtn.click();
+        }
+      });
+
+      // Add hover effect to captcha box
+      captchaBox.addEventListener('mouseenter', function() {
+        this.style.transform = 'translateY(-5px)';
+      });
+
+      captchaBox.addEventListener('mouseleave', function() {
+        this.style.transform = '';
+      });
+
+      // Initial focus
+      passkeyInput.focus();
+    });
+  </script>
 </body>
 </html>
