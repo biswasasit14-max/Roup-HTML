@@ -1,13 +1,14 @@
+// checkPasskey.php
 <?php
 // checkpasskey.php
 
-// Define the correct passkey securely on the server
-$CORRECT_PASSKEY = "secure123";
+// Securely store the correct passkey
+$CORRECT_PASSKEY = "OPEN";
 
-// Get the passkey sent from the client
+// Get user input
 $userInput = isset($_POST['passkey']) ? trim($_POST['passkey']) : "";
 
-// Compare and return JSON response
+// Validate
 if ($userInput === $CORRECT_PASSKEY) {
     echo json_encode([
         "success" => true,
