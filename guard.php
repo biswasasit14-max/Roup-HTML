@@ -4,7 +4,7 @@ session_start();
 // Redirect to login if not authenticated
 function require_login() {
     if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
-        header('Location: login.html');
+        header('Location: index.html');
         exit();
     }
 }
