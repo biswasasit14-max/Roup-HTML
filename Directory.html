@@ -18,6 +18,63 @@
       border-right: 1px solid #ccc;
       padding: 20px;
       box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Animated conic gradient header */
+    .sidebar-header {
+      font-size: 1.5em;
+      font-weight: bold;
+      margin-bottom: 20px;
+      padding: 10px 20px;
+      border: 6px solid transparent;
+      border-radius: 12px;
+      background: conic-gradient(
+        from 0deg,
+        red,
+        orange,
+        yellow,
+        green,
+        blue,
+        indigo,
+        violet,
+        red
+      );
+      background-size: 200% 200%;
+      animation: rotateGradient 5s linear infinite;
+      color: black;
+      text-align: center;
+    }
+
+    @keyframes rotateGradient {
+      0% {
+        background: conic-gradient(
+          from 0deg,
+          red,
+          orange,
+          yellow,
+          green,
+          blue,
+          indigo,
+          violet,
+          red
+        );
+      }
+      100% {
+        background: conic-gradient(
+          from 360deg,
+          red,
+          orange,
+          yellow,
+          green,
+          blue,
+          indigo,
+          violet,
+          red
+        );
+      }
     }
 
     .sidebar a {
@@ -28,6 +85,9 @@
       color: black;
       background-color: grey;
       transition: all 0.2s ease;
+      width: 100%;
+      text-align: center;
+      border-radius: 6px;
     }
 
     .sidebar a:hover {
@@ -55,17 +115,18 @@
       border: none;
     }
 
-    /* Reset button */
+    /* Circular reset button */
     .reset-btn {
-      display: block;
       margin-top: 20px;
-      padding: 10px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
       background: #d9534f;
       color: white;
       border: none;
       cursor: pointer;
-      width: 100%;
-      text-align: center;
+      font-weight: bold;
+      transition: background 0.3s ease;
     }
 
     .reset-btn:hover {
@@ -75,10 +136,11 @@
 </head>
 <body>
   <div class="sidebar">
+    <div class="sidebar-header">Directory</div>
     <a href="Home.html" target="contentFrame">Home</a>
     <a href="About Us.html" target="contentFrame">About Us</a>
     <a href="Departments.html" target="contentFrame">Departments</a>
-    <button class="reset-btn" onclick="resetFrame()">Reset</button>
+    <button class="reset-btn" onclick="resetFrame()">↺</button>
   </div>
 
   <div class="content">
@@ -92,9 +154,7 @@
     // Add click event to links
     links.forEach(link => {
       link.addEventListener('click', function() {
-        // Remove active class from all links
         links.forEach(l => l.classList.remove('active'));
-        // Add active class to clicked link
         this.classList.add('active');
       });
     });
