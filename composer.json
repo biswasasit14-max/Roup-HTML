@@ -2,11 +2,11 @@
   "name": "biswasasit14-max/roup-html",
   "description": "Static HTML/CSS/JS site with a PHP script for passkey checking",
   "type": "project",
-  "license": "none",
+  "license": "MIT",
   "authors": [
     {
       "name": "Asit Biswas",
-      "email": "your@email.com"
+      "email": biswasasit14@gmail.com"
     }
   ],
   "require": {
