@@ -1,6 +1,12 @@
 <?php
+// Turn on error reporting
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+// Test if guard.php has errors
 require_once 'guard.php';
-protect_page();
+echo "Guard loaded successfully!";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -133,6 +139,7 @@ protect_page();
     </footer>
 </body>
 </html>
+
 
 
 
