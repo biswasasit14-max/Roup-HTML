@@ -4,7 +4,7 @@ session_start();
 // Redirect to login if not authenticated
 function require_login() {
     if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
-        header('Location: login.html');
+        header('Location: index.html');
         exit();
     }
 }
@@ -37,7 +37,7 @@ function check_session_timeout() {
             // Session expired
             session_unset();
             session_destroy();
-            header('Location: login.html?timeout=1');
+            header('Location: index.html?timeout=1');
             exit();
         } else {
             // Update login time
