@@ -1,6 +1,5 @@
 <?php
-require_once 'guard.php';
-protect_page();
+require_once 'guard.php'; // That's it! No extra function call needed
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -75,5 +74,6 @@ protect_page();
     </footer>
 </body>
 </html>
+
 
 
