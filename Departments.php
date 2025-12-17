@@ -181,9 +181,12 @@ require_once 'guard.php'; // That's it! No extra function call needed
     </main>
     <footer class="gradient-footer">
         <p>&copy; 2015 St. Teresa's School. All rights reserved.</p>
-    </footer>        
+    </footer>  
+
+    <script src="redirect.js"></script>
 </body>
 </html>
+
 
 
 
