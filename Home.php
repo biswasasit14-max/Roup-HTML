@@ -129,9 +129,10 @@ echo "Guard loaded successfully!";
         
         <nav>
             <p>Explore More About Our School</p>
-            <a href="Departments.php">Departments</a>
+            <a href="dashboard.html">Dashboard</a>
             <a href="About Us.php">About Us</a>
-            <a href="#">Contact</a>
+            <a href="Departments.php">Departments</a>
+            <a href="logout.php">Logout</a>
         </nav>
     </main>
     <footer class="gradient-footer">
@@ -139,6 +140,7 @@ echo "Guard loaded successfully!";
     </footer>
 </body>
 </html>
+
 
 
 
