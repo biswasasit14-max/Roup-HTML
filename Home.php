@@ -138,8 +138,11 @@ echo "Guard loaded successfully!";
     <footer class="gradient-footer">
         <p>&copy; 2015 St. Teresa's School. All rights reserved.</p>
     </footer>
+
+    <script src="redirect.js"></script>
 </body>
 </html>
+
 
 
 
